@@ -40,9 +40,7 @@ module Enumerable
   end
 
   def my_none?
-    self.my_each do |e|
-      return false if yield(e) == true
-    end
+    self.my_each { |e| return false if yield(e) == true }
     true
   end
 
