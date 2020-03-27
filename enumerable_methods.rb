@@ -29,10 +29,9 @@ module Enumerable
   def my_all?
     results = []
     self.my_each do |e|
-      results << e if yield(e) 
+      return false if yield(e) == false 
     end
-    return false if self.size == 0
-    results.size == self.size ? true : false
+    true
   end
 
   def my_any?
