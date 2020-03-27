@@ -46,8 +46,8 @@ module Enumerable
   def my_none?
     results = []
     self.my_each do |e|
-      results << e if yield(e)
+      return false if yield(e) == false
     end
-    results.size == 0 ? true : false
+    true
   end
 end
