@@ -34,11 +34,10 @@ module Enumerable
   end
 
   def my_any?
-    results = []
     self.my_each do |e|
-      results << e if yield(e)
+      return true if yield(e) == true
     end
-    results.size > 0 ? true : false
+    false
   end
 
   def my_none?
