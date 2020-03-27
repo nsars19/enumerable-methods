@@ -20,9 +20,7 @@ module Enumerable
 
   def my_select
     results = []
-    self.my_each do |e|
-      results << e if yield(e)
-    end
+    self.my_each { |e| results << e if yield(e) }
     results
   end
 
