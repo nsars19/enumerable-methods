@@ -28,8 +28,9 @@ module Enumerable
 
   def my_all?
     self.my_each do |e|
-      return false if yield(e) == false 
+      return false if yield(e) == false || yield(e) == nil
     end
+    return false if self.size == 0
     true
   end
 
