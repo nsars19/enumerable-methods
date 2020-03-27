@@ -64,5 +64,19 @@ module Enumerable
     mapped_array
   end
 
+  def my_inject(arg = nil)
+    total = arg if arg != nil
+    if arg == nil
+      total = self[0]
+      i = 1
+      while i < self.size
+        total = yield(total, self[i])
+        i += 1
+      end
+    else
+      self.my_each { |e| total = yield(total, e) }
+    end
+    total
+  end
 
 end
