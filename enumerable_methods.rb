@@ -58,7 +58,7 @@ module Enumerable
     count
   end
 
-  def my_map
+  def my_map(&proc)
     mapped_array = []
     self.my_each { |e| mapped_array << yield(e) }
     mapped_array
