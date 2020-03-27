@@ -49,15 +49,15 @@ module Enumerable
   end
 
   def my_count(arg = nil)
-    count = []
+    count = 0
     self.my_each do |e| 
       if block_given?
-        count << e if yield(e)
+        count += 1 if yield(e)
       else
-        count << e if e == arg
+        count += 1 if e == arg
       end 
     end
-    count.size
+    count
   end
 
 
